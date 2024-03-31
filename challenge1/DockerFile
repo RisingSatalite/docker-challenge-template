@@ -1,0 +1,8 @@
+# So install nginx here to display the html file
+FROM nginx:latest
+
+# A common place to put the html files
+COPY index.html /usr/share/nginx/html
+
+# Make port 80 availble to be used
+EXPOSE 80
