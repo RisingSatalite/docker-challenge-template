@@ -1,0 +1,15 @@
+#build command, dot is needed to tell docker, the image is in same directory
+#docker build -t assignment1image .
+
+# So install nginx here to display the html file
+FROM nginx:latest
+
+# A common place to put the html files
+COPY server.js /usr/share/nginx/html
+
+# Make port 8080 availble to be used
+EXPOSE 8080
+
+# Other setting needed to make port 8080 work
+RUN sed -i 's/80/8080/g' /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]
